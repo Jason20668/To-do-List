@@ -1,5 +1,8 @@
 //Create array to store tasks
 let tasks = []
+let taskNum = tasks.length
+//Variable for total tasks
+let totalTasks = document.getElementById('totalTasks')
 
 //Add event listener to add tasks
 document.getElementById('addTaskButton').addEventListener('click', function () {
@@ -13,7 +16,6 @@ document.getElementById('addTaskButton').addEventListener('click', function () {
         document.getElementById('taskInput').value = ""
         //Updates the array
         displayTasks()
-
     }
 }
 )
@@ -59,7 +61,7 @@ document.getElementById('clearTaskButton').addEventListener('click', function ()
     displayTasks()
 })
 
-
+//Event listener for enter key
 taskInput.addEventListener('keydown', function(event) {
     //if Enter button is pressed
     if (event.key === 'Enter') {
@@ -74,3 +76,9 @@ taskInput.addEventListener('keydown', function(event) {
             displayTasks()
     }}
 });
+
+
+function totalTaskNumber(){
+    totalTasks = `Total Tasks: ${taskNum}`
+    displayTasks()
+}
