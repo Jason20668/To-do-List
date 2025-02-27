@@ -11,7 +11,7 @@ document.getElementById('addTaskButton').addEventListener('click', function () {
         tasks.push(taskInput)
         //Value for Task Input is wiped after the button is clicked
         document.getElementById('taskInput').value = ""
-        //function that isn't set up yet
+        //Updates the array
         displayTasks()
 
     }
@@ -44,17 +44,33 @@ function displayTasks() {
 }
 
 //Function that removes a task when checkmark is clicked
-function removeTask(index){
-//Remove task from array
+function removeTask(index) {
+    //Remove task from array
     tasks.splice(index, 1)
-//Call the function to update the task list display
-displayTasks()
+    //Call the function to update the task list display
+    displayTasks()
 }
 
 //Event listener for Clear All button
-document.getElementById('clearTaskButton').addEventListener('click', function(){
+document.getElementById('clearTaskButton').addEventListener('click', function () {
     //Empty array
     tasks = []
     //Updates array
     displayTasks()
 })
+
+
+taskInput.addEventListener('keydown', function(event) {
+    //if Enter button is pressed
+    if (event.key === 'Enter') {
+        let taskInput = document.getElementById('taskInput').value
+        //If statement checking the truthy falsy of the variable
+        if (taskInput) {
+            //If truthy  pushes the value to the last issue of the array
+            tasks.push(taskInput)
+            //Value for Task Input is wiped after the button is clicked
+            document.getElementById('taskInput').value = ""
+            //Updates the array
+            displayTasks()
+    }}
+});
