@@ -16,6 +16,8 @@ document.getElementById('addTaskButton').addEventListener('click', function () {
         document.getElementById('taskInput').value = ""
         //Updates the array
         displayTasks()
+
+        totalTaskNumber();
     }
 }
 )
@@ -51,6 +53,8 @@ function removeTask(index) {
     tasks.splice(index, 1)
     //Call the function to update the task list display
     displayTasks()
+
+    totalTaskNumber();
 }
 
 //Event listener for Clear All button
@@ -59,6 +63,8 @@ document.getElementById('clearTaskButton').addEventListener('click', function ()
     tasks = []
     //Updates array
     displayTasks()
+
+    totalTaskNumber();
 })
 
 //Event listener for enter key
@@ -74,11 +80,13 @@ taskInput.addEventListener('keydown', function(event) {
             document.getElementById('taskInput').value = ""
             //Updates the array
             displayTasks()
+
+            totalTaskNumber();
     }}
 });
 
-
 function totalTaskNumber(){
-    totalTasks = `Total Tasks: ${taskNum}`
+    taskNum = tasks.length
+    totalTasks.innerText = `Total Tasks: ${taskNum}`
     displayTasks()
 }
